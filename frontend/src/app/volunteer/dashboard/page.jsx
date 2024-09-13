@@ -12,7 +12,7 @@ export default function Dashboard() {
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
-                  src="./images/build.png"
+                  src="/images/build.png"
                   alt="Tabang Build"
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
@@ -33,7 +33,7 @@ export default function Dashboard() {
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
-                  src="./images/help.png"
+                  src="/images/help.png"
                   alt="Tabang Nurse"
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
@@ -54,7 +54,7 @@ export default function Dashboard() {
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
-                  src="./images/healthy-cooking.png"
+                  src="/images/healthy-cooking.png"
                   alt="Luto Humba"
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
@@ -75,7 +75,7 @@ export default function Dashboard() {
             <div className="group relative">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <img
-                  src="./images/images.png"
+                  src="/images/images.png"
                   alt="Hatag Please"
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />

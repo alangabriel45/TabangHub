@@ -5,7 +5,7 @@ export default function Register() {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-48 w-auto"
-            src="./images/logo.png"
+            src="/images/logo.png"
             alt="Your Company"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
