@@ -14,7 +14,7 @@ export default function Login() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
-          <form className="space-y-6" action="./dashboard" method="POST">
+          <form className="space-y-6" action="/volunteer/dashboard" method="POST">
             <div>
               <label
                 htmlFor="email"

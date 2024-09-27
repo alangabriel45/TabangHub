@@ -1,0 +1,6 @@
+npm uninstall @mui/material @mui/icons-material
+
+npm install @mui/material@5 @mui/icons-material@5
+
+npm install chart.js react-chartjs-2
+

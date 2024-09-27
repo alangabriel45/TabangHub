@@ -1,3 +1,7 @@
+"use client";
+
+import * as React from 'react';
+
 export default function Profile() {
   return (
     <div className="bg-gray-100 font-sans min-h-screen flex items-center justify-center p-6">
@@ -10,11 +14,12 @@ export default function Profile() {
 
         {/* Profile Section */}
         <section className="flex items-center mb-8 rounded-lg overflow-hidden bg-gray-50 p-6">
-          <div className="w-40 h-40">
+          <div className="w-40 h-40 flex-shrink-0">
+            {/* Ensure the profile picture is a circle */}
             <img
-              src="/images/choy.png"
+              src="/images/choy.png" // Assuming the image is located in the public folder at /images
               alt="Profile Picture"
-              className="w-full h-full rounded-full border-4 border-gray-200 object-cover"
+              className="w-full h-full rounded-full object-cover border-4 border-gray-200"
             />
           </div>
           <div className="ml-6">
