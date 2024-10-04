@@ -22,6 +22,8 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import EventIcon from '@mui/icons-material/Event';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import HistoryIcon from '@mui/icons-material/History';
+import GroupIcon from '@mui/icons-material/Group'; // Import icon for Volunteer Management
+import BusinessIcon from '@mui/icons-material/Business'; // Import icon for Organization Management
 import { useRouter } from 'next/navigation';  // Import the useRouter hook
 
 const drawerWidth = 240;
@@ -127,13 +129,14 @@ export default function RootLayout({ children }) {
         <Divider />
         <List>
           {[
-            { text: 'Dashboard', icon: <DashboardIcon />, path: '/organization/organizationdashboard' },
-            { text: 'Event Lists', icon: <EventIcon />, path: '/organization/manageevent' },
-            { text: 'Reports', icon: <BarChartIcon />, path: '/organization/reports' },
-            { text: 'History', icon: <HistoryIcon />, path: '/organization/history' },
+            { text: 'Dashboard', icon: <DashboardIcon />, path: '/admin/organizationdashboard' },
+            { text: 'Volunteer Management', icon: <GroupIcon />, path: '/admin/volunteermanagement' }, // Updated to Volunteer Management
+            { text: 'Organization Management', icon: <BusinessIcon />, path: '/admin/organizationmanagement' }, // Added Organization Management
+            { text: 'Reports', icon: <BarChartIcon />, path: '/admin/reports' },
+            { text: 'History', icon: <HistoryIcon />, path: '/admin/history' },
           ].map((item) => (
             <ListItem key={item.text} disablePadding>
-              <ListItemButton onClick={() => handleNavigation(item.path)}>  {/* Navigate to the path on click */}
+              <ListItemButton onClick={() => handleNavigation(item.path)}>  {/* Navigate to the path on click */} 
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItemButton>
