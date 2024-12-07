@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link'; // Use Link for navigation
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -9,9 +10,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -29,9 +29,11 @@ export default function Navbar() {
       <Container maxWidth="lg">
         <Toolbar>
           {/* Left-aligned logo */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            TabangHub
-          </Typography>
+          <Link href="/volunteer/dashboard" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, cursor: 'pointer' }}>
+              TabangHub
+            </Typography>
+          </Link>
 
           {/* Center-aligned buttons */}
           <Grid container justifyContent="center" spacing={2}>
@@ -70,8 +72,17 @@ export default function Navbar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link href="/volunteer/profile">Profile</Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link href="/volunteer/donationhistory">Donation History</Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link href="/volunteer/manageevents">Manage Events</Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+            <Link href="/login">Logout</Link></MenuItem>
           </Menu>
         </Toolbar>
       </Container>

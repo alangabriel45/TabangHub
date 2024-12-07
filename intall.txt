@@ -4,3 +4,7 @@ npm install @mui/material@5 @mui/icons-material@5
 
 npm install chart.js react-chartjs-2
 
+npm install @fullcalendar/react @fullcalendar/daygrid @fullcalendar/interaction
+
+npm install sweetalert2
+

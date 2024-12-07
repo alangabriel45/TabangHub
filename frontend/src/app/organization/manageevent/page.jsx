@@ -1,12 +1,28 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function ManageEvent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+
+  const handleSaveEvent = (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      title: "Event Created",
+      text: "Your event has been successfully created!",
+      icon: "success",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "OK",
+    }).then(() => {
+
+      handleCloseModal();
+    });
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen p-6">
@@ -22,14 +38,14 @@ export default function ManageEvent() {
           type="text"
           placeholder="Search events..."
           className="w-96 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          style={{ height: '2.75rem' }} // Adjust height to match button
+          style={{ height: "2.75rem" }} // Adjust height to match button
         />
-        
+
         {/* Create Event Button */}
         <button
           onClick={handleOpenModal}
           className="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          style={{ height: '2.75rem' }} // Matches height of search bar
+          style={{ height: "2.75rem" }} // Matches height of search bar
         >
           Create Event
         </button>
@@ -75,9 +91,11 @@ export default function ManageEvent() {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Create Event</h2>
-            <form>
+            <form onSubmit={handleSaveEvent}>
               <div className="mb-4">
-                <label htmlFor="eventName" className="block text-gray-700 mb-2">Event Name</label>
+                <label htmlFor="eventName" className="block text-gray-700 mb-2">
+                  Event Name
+                </label>
                 <input
                   id="eventName"
                   type="text"
@@ -86,7 +104,9 @@ export default function ManageEvent() {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="eventDate" className="block text-gray-700 mb-2">Date</label>
+                <label htmlFor="eventDate" className="block text-gray-700 mb-2">
+                  Date
+                </label>
                 <input
                   id="eventDate"
                   type="date"
@@ -94,7 +114,9 @@ export default function ManageEvent() {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="eventLocation" className="block text-gray-700 mb-2">Location</label>
+                <label htmlFor="eventLocation" className="block text-gray-700 mb-2">
+                  Location
+                </label>
                 <input
                   id="eventLocation"
                   type="text"

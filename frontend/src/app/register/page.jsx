@@ -1,4 +1,37 @@
+"use client";
+
+import React from "react";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation"; // Import useRouter
+
 export default function Register() {
+  const router = useRouter(); // Initialize the router
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    // Trigger SweetAlert2 confirmation
+    Swal.fire({
+      title: "Confirm Registration",
+      text: "Are you sure you want to register with these details?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Register!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Show success message
+        Swal.fire("Success!", "You have successfully registered.", "success").then(
+          () => {
+            // Redirect to the login page after registration
+            router.push("/login");
+          }
+        );
+      }
+    });
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md px-6 py-12 bg-white shadow-md rounded-lg">
@@ -14,7 +47,7 @@ export default function Register() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="email"
@@ -76,13 +109,13 @@ export default function Register() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                Register
               </button>
             </div>
           </form>
           <h1 className="text-center mt-4">
             Already have an account?{" "}
-            <a href="./login" className="text-blue-600">
+            <a href="/login" className="text-blue-600">
               Sign In
             </a>
           </h1>

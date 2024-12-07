@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Swal from "sweetalert2"; // Import SweetAlert2
 
 export default function Details() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,6 +20,24 @@ export default function Details() {
   const nextSlide = () => {
     const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
+  };
+
+  const handleSaveEdit = () => {
+    // Trigger SweetAlert2 confirmation
+    Swal.fire({
+      title: "Save Changes",
+      text: "Are you sure you want to save changes to this event?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Save",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Perform save action (e.g., API call or state update)
+        Swal.fire("Saved!", "Your changes have been saved.", "success");
+      }
+    });
   };
 
   return (
@@ -61,7 +80,10 @@ export default function Details() {
               <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-xl font-bold text-gray-900">Event Highlights</h2>
-                  <button className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <button
+                    onClick={handleSaveEdit} // Attach the SweetAlert2 confirmation here
+                    className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
                     Edit Event
                   </button>
                 </div>
